@@ -1,0 +1,229 @@
+ Test Functionality on https://www.saucedemo.com/
+Objective: To verify that login functionality works correctly and handles invalid imputs properly
+
+---
+
+Test 1 – Login with valid credentials
+
+Preconditions
+- User account exists
+
+Steps
+1. Open login page  
+2. Enter username: standard_user
+3. Enter password: secret_sauce
+4. Click “Login”
+
+Expected Result:
+User is logged in and directed to product page
+
+Actual Result:
+User is logged in and directed to product page
+
+Status:
+Pass
+
+---
+
+Test 2 – Invalid Credentials
+
+Preconditions:
+- User account exists but password is entered incorrectly
+
+Steps (Incorrect Password):
+1.	Enter username: standard_user
+2.	Enter password: secret_sauc
+3.	Click “Login”
+
+Expected Result:
+Login fails and user receives clear error message
+
+Actual Result:
+•	Login failed as expected
+•	Error message displayed
+•	Red “X” icons appear in input fields
+
+Steps (Incorrect Username):
+1.	Enter username: standard_use
+2.	Enter password: secret_sauce
+3.	Click “Login”
+
+Expected Result:
+Login fails and user receives clear error message
+
+Actual Result:
+•	Login failed as expected
+•	Error message displayed
+•	Red “X” icons appear in input fields
+
+Status:
+ Pass with observation (see Bug #1) 
+
+---
+
+Test 3: Long Username Input
+
+Steps:
+1.	Enter username: performance_glitch_user
+2.	Enter password: secret_sauce
+3.	Click “Login”
+
+Expected Result:
+Login executes normally
+
+Actual Result:
+Login successful with slight delay (~1–2 seconds longer than previous attempts)
+
+Status:
+Pass
+
+---
+
+Test 4: Sorting Functionality
+
+Steps:
+1.	Open filter dropdown
+2.	Select “Price (low to high)”
+3.	Repeat for “Price (high to low)”
+
+Expected Result:
+Products sorted correctly based on selected option
+
+Actual Result:
+•	Sorting works correctly
+•	Dropdown arrow not responsive when clicked directly
+
+Status:
+Pass with observation (see Bug#2)
+
+---
+
+Test Case 5: Product Navigation
+
+Steps:
+1.	Click on a product (e.g. item priced at $49.99)
+
+Expected Result:
+User is taken to product detail page
+
+Actual Result:
+•	Inconsistent behaviour observed:
+o	Sometimes loads product page correctly
+o	Sometimes redirects to login page with error
+
+Status:
+Fail (see Bug#3)
+
+---
+
+Test 6: Add/Remove Items from Cart
+
+Steps:
+1.	Add multiple items to cart
+2.	Remove items one by one
+
+Expected Result:
+Items are correctly added and removed
+
+Actual Result:
+All actions performed correctly
+
+Status:
+Pass
+
+---
+
+  BUG REPORTS
+
+Bug #1: Misleading “X” icon in input fields
+
+Description:
+Red “X” icon appears in login input fields but is not interactive
+
+Steps to Reproduce:
+1.	Enter invalid login credentials
+2.	Observe icon in input field
+
+Expected Result:
+Icon should either:
+•	be clickable (clear input), OR
+•	not appear as interactive
+
+Actual Result:
+Icon appears clickable but has no function
+
+Severity:
+Low
+
+---
+
+Bug #2: Filter dropdown arrow not responsive
+
+Description:
+Clicking the dropdown arrow does not open filter menu
+Steps to Reproduce:
+1.	Click directly on filter arrow icon
+
+Expected Result:
+Dropdown menu opens
+
+Actual Result:
+No response unless clicking center of dropdown
+
+Severity:
+Low / Medium
+
+---
+
+Bug #3: Unexpected logout when accessing product page
+
+Description:
+User is intermittently redirected to login page when accessing product details
+
+Steps to Reproduce:
+1.	Log in with valid credentials
+2.	Navigate to product list
+3.	Click on any product
+
+Expected Result:
+User remains logged in and views product details
+
+Actual Result:
+User is redirected to login page with message:
+“You can only access '/inventory-item.html' when you are logged in.”
+
+Severity:
+High
+
+Notes:
+•	Issue occurs intermittently
+•	Likely session handling issue
+
+---
+
+Bug #4: Filter selection not preserved
+
+Description:
+Selected filter resets after navigating back from product page
+
+Steps to Reproduce:
+1.	Apply a filter
+2.	Open a product
+3.	Return to product list
+
+Expected Result:
+Filter remains applied
+
+Actual Result:
+Filter resets to default
+
+Severity:
+Medium
+
+---
+
+  SUMMARY
+The application performs well in core functionality such as login and cart operations. However, several usability and session-related issues were identified.
+The most critical issue involves inconsistent session handling when navigating to product pages, which may impact user experience and trust.
+Additional minor usability issues were observed in UI elements and filter interactions.
+
