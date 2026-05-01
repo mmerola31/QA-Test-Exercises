@@ -1,0 +1,51 @@
+# QA Practice Project – Web Testing
+
+## Objective
+Practice manual QA testing by writing structured test cases and identifying potential issues.
+
+## Tested Features
+- Login functionality
+- Product sorting
+- Cart operations
+- Input handling
+
+---
+
+## Sample Test Case
+
+**Test Case ID:** TC_001  
+**Title:** Login with valid credentials  
+
+**Steps:**
+1. Go to login page  
+2. Enter valid username and password  
+3. Click "Login"  
+
+**Expected Result:**
+User is redirected to dashboard  
+
+**Actual Result:**
+User successfully logs in  
+
+**Status:**
+Pass  
+
+---
+
+## Observations
+- Long input fields may not have limits
+- UI feedback could be improved on errors
+
+---
+
+## Tools Used
+- Browser testing (manual)
+- Structured test case writing
+
+---
+
+## Learning Outcome
+Improved ability to:
+- Write clear test cases
+- Think like a QA tester
+- Identify edge cases
