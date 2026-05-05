@@ -1,0 +1,87 @@
+# QA Practice Project
+
+## Objective
+To validate that payment transactions are processed correctly and that the system reflects accurate transaction statuses (Processed, Failed, Pending).
+
+## Tested Features
+- Payment process
+- Transaction result
+- Message accuracy
+
+---
+
+## Test Case
+
+## Test Case ID: TC-001 
+**Title:** Validate Payment Processing and Balance Update
+
+## Preconditions:
+
+User account is active
+Account balance is €1000
+User is logged into the system
+
+**Steps:**
+1. Navigate to the payment section
+2. Select a merchant
+3. Enter payment amount: €500
+4. Click on “Make Payment”
+5. Check the payment status
+6. Verify the updated account balance
+7. Review transaction details
+
+**Expected Result:**
+. Payment status is Processed/Successful
+. €500 is deducted from the account
+. Transaction is correctly recorded in transaction history
+
+**Actual Result:**
+. Payment status is shown as Failed
+. €500 is deducted from the account
+. Transaction appears inconsistent with status
+
+**Status:**
+Failed (See Bug#1)
+
+## Bug ID: BUG#1
+Title: Failed Payment Still Deducts Balance
+
+**Description:**
+A payment marked as “Failed” still results in the transaction amount being deducted from the user’s account balance, leading to inconsistent system behavior and potential financial discrepancies.
+
+**Steps to Reproduce:**
+1. Log into the system
+2. Navigate to the payment section
+3. Select a merchant
+4. Enter payment amount (€500)
+5. Click “Make Payment”
+6. Observe payment status
+7. Check account balance
+
+**Expected Result:**
+. If payment fails → amount should NOT be deducted
+. If amount is deducted → payment should be Successful
+
+**Actual Result:**
+Payment status = Failed
+Account balance reduced by €500
+
+Severity: High
+Priority: High
+
+---
+
+## Observations
+- This issue may lead to incorrect financial reporting and customer dissatisfaction
+- Requires immediate investigation of transaction handling logic
+
+## Summary
+
+The system demonstrates inconsistent behavior in payment processing. A failed transaction should not result in a deduction of funds. This indicates a critical issue in transaction validation or state handling.
+
+---
+
+## Learning Outcome
+Improved ability to:
+- Write clearer test cases
+- Think like a QA tester
