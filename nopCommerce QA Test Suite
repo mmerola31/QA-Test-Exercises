@@ -1,0 +1,121 @@
+#Created Jira tickets using AI to recreate Test cases
+Website used: https://demo.nopcommerce.com/
+
+## Objective
+Practice manual QA testing by writing structured test cases and identifying potential issues.
+
+## Tested Features
+-Search Functionality
+-Product Filtering
+-Cart Functionality
+---
+
+## Environment Observation Report
+Bug:Website Timeout
+
+Temporary session timeout on Demo environment.
+
+Environment:
+-nopCommerce Demo Store
+
+During test execution, website returned a timeout error while planning test procedures.
+
+Possible cause:
+-shared demo server overload
+-temporary backend unavailability
+
+Reproducibility: 
+-Not confirmed s(single occurrence)
+
+Severity:
+Low (not functional defect)
+
+##TICKET 1 — Product Search Functionality
+
+#ID: NOP-SEARCH-001
+Title: Verify product search returns relevant results
+Steps:
+1.	Use search bar 
+2.	Search for “book” or “computer” 
+Expected Result:
+-Relevant products displayed 
+-No unrelated items shown
+
+**Actual Result (Book):**
+Search shows products (laptops) titled ‘mackbook’, ‘ultrabook’, ‘sleekbook’. Search included specific word searched with search bar in product as result of search.
+
+**Actual Result (Computer):**
+Search shows product (service) titled ‘Build your own computer’. Search included specific word searched with search bar in product as result of search.
+
+
+**Status:**
+Pass
+Notes:
+Search bar shows products (laptops or service) with specific word in name or title, not product classification (books or computers) which may be confusing to user as user might be looking for product (books or computers) and receive search results with search word in the name or title.
+
+
+---
+
+
+##TICKET 2 — Add Product to Cart
+
+#ID: NOP-CART-001
+Title: Verify user can add product to shopping cart
+Type: Functional
+Priority: Critical
+Steps:
+1.	Open any product category (e.g. Books or Computers) 
+2.	Select a product 
+3.	Click “Add to cart” 
+4.	Navigate to cart page
+
+
+**Expected Result:**
+-Relevant product is placed in cart and shows in cart with correct name, relevant quantity (=1) and price shown correctly
+-Cart updates without errors
+
+**Actual Result:**
+- Relevant product is placed in cart and shows in cart with correct name, relevant quantity (=1) and price shown correctly
+-Cart updates without errors
+
+**Status:**
+Pass
+
+##TICKET 3 — Update Cart Quantity
+
+#ID: NOP-CART-002
+Title: Verify cart quantity can be updated
+Type: Functional
+Priority: Medium
+
+Steps:
+1.	Add product to cart 
+2.	Increase quantity (e.g. 1 → 2) 
+3.	Update cart 
+Expected Result:
+-Quantity updates correctly 
+-Total price recalculates 
+-No UI errors
+
+**Actual Result:**
+-Cart updates automatically upon quantity change without requiring page refresh
+-Quantity increased from 1 to 2
+-Total price recalculated correctly ( total price recalculated from 360$ to 720$)
+-No UI errors
+
+**Status:**
+Pass
+
+
+---
+
+## Tools Used
+- Search bar testing (manual)
+
+---
+
+## Learning Outcome
+Improved ability to:
+- Write clear test cases
+- Think like a QA tester
+- Identify edge cases
