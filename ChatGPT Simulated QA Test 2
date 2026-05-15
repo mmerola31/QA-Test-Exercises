@@ -1,0 +1,114 @@
+Scenario: User Activity Drop & Operational Incident Analysis
+
+A SaaS platform notices a sudden drop in user activity metrics.
+
+Simplified data:
+
+Weekly Active Users (WAU)
+Week	WAU
+W1	  10,200
+W2	  10,450
+W3	  10,300
+W4	  6,800
+W5	  6,600
+
+Support Tickets (Category Breakdown, Week 4–5 spike)
+Category	          W3	W4	W5
+Login issues	      120	540	610
+Payment failures	  80	90	95
+Feature bugs	      60	310	290
+Account suspensions	40	420	460
+
+Your Tasks
+
+1. Identify the anomaly
+What changed?
+When did it start?
+How severe is it?
+
+2. Hypothesis building
+
+List 2–3 possible root causes:
+
+Product issue?
+Authentication system failure?
+Policy enforcement spike?
+Payment provider issue?
+3. Correlation reasoning
+
+Explain:
+
+Which dataset supports which hypothesis?
+Why WAU dropped aligns with ticket spikes
+4. Root cause conclusion (your final answer)
+
+Pick the most likely cause and justify it in 5–8 lines.
+
+5. Operational recommendation
+
+Give:
+
+1 immediate fix (short-term)
+1 system improvement (long-term)
+
+---
+
+Case Study: User Activity Drop & Operational Incident Analysis
+Summary
+
+A sudden drop in Weekly Active Users (WAU) occurred starting Week 4, with approximately 4,000 fewer users. The issue is severe, impacting platform engagement and potential revenue metrics.
+
+Data Review
+Week	WAU
+W1	10,200
+W2	10,450
+W3	10,300
+W4	6,800
+W5	6,600
+
+WAU declined sharply from Week 4 onward, indicating a major operational issue.
+
+Support tickets show the following trends:
+
+Category	W3	W4	W5
+Login issues	120	540	610
+Payment failures	80	90	95
+Feature bugs	60	310	290
+Account suspensions	40	420	460
+
+Key observations:
+
+Login issues: +420 cases from W3 → W4; +70 W4 → W5
+Feature bugs: +250 W3 → W4; slight decrease (-20) W4 → W5
+Account suspensions: +380 W3 → W4; +40 W4 → W5
+Analysis
+
+The issue appears to be multi-faceted, likely related to policy enforcement changes:
+
+Login issues and account suspensions are tightly correlated with the WAU drop: users unable to log in or suspended accounts are excluded from WAU counts.
+Feature bugs may result from conflicts introduced by new policy enforcement updates, causing login failures or service interruptions.
+Policy enforcement is a plausible root cause, as updates can trigger account suspensions, login failures, and indirect service bugs.
+
+Supporting datasets:
+
+Login issues
+Feature bug reports
+Account suspension logs
+Root Cause
+
+The likely trigger is a recent policy enforcement update, which caused:
+
+Account suspensions for non-compliant users
+Login issues from new authentication or compliance requirements
+Feature bugs due to conflicts with existing platform code
+Recommendations
+
+Immediate fix:
+
+Revert the platform to the previous policy enforcement version to restore service access and stabilize WAU.
+
+Long-term fix:
+
+Implement policy updates in a staged beta environment to identify conflicts with existing services.
+Release partial updates instead of full enforcement to control bug propagation, login issues, and account suspensions.
+Introduce monitoring to detect spikes in login failures, feature bugs, or account suspensions before full rollout.
