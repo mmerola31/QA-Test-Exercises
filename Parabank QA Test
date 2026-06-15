@@ -1,0 +1,149 @@
+# QA Practice Project Parabank
+
+[https://parabank.parasoft.com/parabank/](https://parabank.parasoft.com/parabank/)
+
+## Objective
+
+Practice manual QA testing by writing structured test cases and identifying potential issues.
+
+## Tested Features
+
+* User Registration
+* Login
+* Transfer Funds
+* Bill Pay
+
+---
+
+## Test Case User Registration
+
+**Test Case ID:** TC_001
+**Title:** Register
+
+**Steps:**
+
+1. Go to main home page
+2. Navigate to Register link
+3. Click "Register"
+4. Register with valid data
+5. Verify successful account creation
+
+**Expected Result:**
+User is successfully registered and account is created. Required fields validation should prevent submission when mandatory fields are empty.
+
+**Actual Result:**
+User is successfully registered when valid data is provided. Required field validation appears to work when fields are left blank.
+
+**Status:**
+PASS
+
+---
+
+## Test Case Login
+
+**Test Case ID:** TC_002
+**Title:** Login
+
+**Steps:**
+
+1. Go to main home page
+2. Navigate to Login
+3. Enter valid username/password
+4. Click "Login"
+5. Verify successful login
+
+**Expected Result:**
+User should be logged in successfully with valid credentials. Invalid credentials should show a validation error message.
+
+**Actual Result:**
+System displays error message: “An internal error has occurred and has been logged” when using both valid and invalid credentials. Login functionality is not accessible.
+
+**Status:**
+BLOCKED
+
+**Notes:**
+Login functionality is not working as expected, preventing further testing of dependent modules.
+
+---
+
+## Test Case Transfer Funds
+
+**Test Case ID:** TC_003
+**Title:** Transfer Funds
+
+**Steps:**
+
+1. Go to user dashboard
+2. Navigate to Transfer Funds
+3. Enter receiver account details and amount
+4. Click “Transfer”
+5. Verify transfer completion
+
+**Expected Result:**
+Funds should be transferred successfully and reflected in both sender and receiver accounts.
+
+**Actual Result:**
+Unable to execute test because access to Transfer Funds results in error: “An internal error has occurred and has been logged”.
+
+**Status:**
+BLOCKED
+
+**Notes:**
+Test cannot proceed due to login/system-level issue affecting access to the feature.
+
+---
+
+## Test Case Bill Pay
+
+**Test Case ID:** TC_004
+**Title:** Bill Pay
+
+**Steps:**
+
+1. Go to user dashboard
+2. Navigate to Bill Pay
+3. Enter payee details and amount
+4. Click “Send Payment”
+5. Verify payment success
+
+**Expected Result:**
+Payment should be successfully processed and reflected in account activity.
+
+**Actual Result:**
+System displays success message:
+“Bill Payment to Booboo in the amount of $100.00 from account 13677 was successful.”
+
+However, when navigating to Account Overview, system returns error:
+“An internal error has occurred and has been logged.”
+
+**Status:**
+FAIL
+
+---
+
+## Observations
+
+**TC_004 – Bill Pay**
+
+* Payment success message is displayed correctly
+* Account Overview is not accessible after transaction
+* Transaction verification is not possible due to system error
+
+---
+
+## Tools Used
+
+* Browser testing (manual)
+* Structured test case writing
+
+---
+
+## Learning Outcome
+
+Improved ability to:
+
+* Write structured test cases
+* Separate test execution from defect reporting
+* Identify system-level vs feature-level issues
+* Apply PASS / FAIL / BLOCKED correctly
+* Understand dependency impact in QA testing
